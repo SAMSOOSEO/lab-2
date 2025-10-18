@@ -1,0 +1,135 @@
+body {
+  font: 100%/1.5 system-ui;
+  margin-inline: 3rem;
+  max-width: auto;
+  padding: 3rem;
+}
+
+
+nav {
+  display: flex;
+  /* Flexbox 적용 */
+  /*flex-direction: column; 세로로 적용*/
+  border-bottom-color: var(--border-color);
+  border-bottom: 1px solid oklch(80% 3% 200);
+  /* 글짜 아래에 선 족용 */
+  margin-bottom: 1em;
+  /* 글짜와 아래의 선 사이의 간격 */
+
+  /* 색깔 추가 */
+  text-decoration: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+
+nav a {
+  flex: 1;
+  /* 균등한 폭을 만드는 것 */
+  text-align: center;
+  /* 글자 중앙 정렬 */
+  text-decoration: none;
+  /* 밑줄 제거>> 제거하지 않으면 글자 밑에 밑줄이 있음 */
+  color: inherit;
+  /* 부모 색상 사용 */
+  padding: 0.5em;
+  /* 안쪽 여백을 어떻게 할것인지*/
+  border-bottom: 0.4em solid transparent; /* 크기 변화되는것 방지 추가*/
+}
+
+/* 현재 페이지 강조 */
+nav a.current {
+  font-weight: bold;
+  /* 선택된 Class가 글자 굵게 */
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  /* 두꺼운 아랫줄 */
+  padding-bottom: 0.1em;
+  /* 아랫줄로 높이 증가 방지 */
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  
+  
+}
+
+html {
+  --color-accent: oklch(65% 50% 0);
+  /* 원하는 색으로 변경 가능 */
+  accent-color: var(--color-accent);
+  /* 브라우저 기본 accent 요소 (버튼, 체크박스 등)에 사용됨 */
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  /* 왼쪽: 라벨, 오른쪽: 입력 필드 설정하기*/
+  gap: 1em;
+  /* 폼 컨트롤 사이 간격 */
+}
+
+button {
+  grid-column: 1 / -1;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  /* article 간 간격 */
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  /* 각 article이 3행 차지 */
+  gap: 1em;
+  /* article 내부 요소 간 간격 */
+}
+
+.projects article h2 {
+  margin: 0;
+  /* 제목 불필요한 여백 제거 하는 설정*/
+}
+
+h1 {
+  font-size: 4em;
+  /* 본문 대비 크게 하는 설정*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  /* 제목 행간 좁게 하는 설정*/
+  text-wrap: balance;
+  /* 줄 균형 맞추는 설정*/
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+/* Dark Mode 내용 */
+
+a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.color-scheme {
+  position: absolute;  
+  top: 1rem;         
+  right: 1rem;         
+  font-size: 0.8rem; 
+}
+
